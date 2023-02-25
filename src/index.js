@@ -6,12 +6,14 @@ import "simplelightbox/dist/simple-lightbox.min.css";
 
 const searchForm = document.getElementById('search-form');
 const input = document.querySelector('[name="searchQuery"]');
-const loadMore = document.querySelector('.load-more');
+const loadMoreBtn = document.querySelector('.load-more');
+const upBtn = document.querySelector('.up');
 const searchImgClass = new SearchImgApi();
 const gallery = document.querySelector('.gallery');
 
 searchForm.addEventListener('submit', onFormSubmit);
-loadMore.addEventListener('click', onLoadMoreImg);
+loadMoreBtn.addEventListener('click', onLoadMoreImg);
+upBtn.addEventListener('click', onUp);
 
 let lightbox = new SimpleLightbox('.photo-card a', {
     captions: true,
@@ -23,7 +25,7 @@ function onFormSubmit(event) {
   event.preventDefault();
   gallery.innerHTML = '';
 
-  searchImgClass.resetPage();
+  searchImgClass.resetNumberPage();
   const inputValue = input.value;
   searchImgClass.changeSearchWord(inputValue);
 
@@ -36,12 +38,14 @@ function onFormSubmit(event) {
         })
         lightbox.refresh();
         loadMoreBtnShow();
+        upBtnShow();
       })
       .catch(error => {
         Notify.failure("Sorry, there are no images matching your search query. Please try again.")
       })
   } else {
-        Notify.info("Please enter new search query")
+    Notify.info("Please enter new search query.")
+    loadMoreBtnHide();
   }
 }
 
@@ -65,9 +69,17 @@ function onLoadMoreImg() {
 }
 
 function loadMoreBtnHide() {
-  loadMore.style.display = 'none';
+  loadMoreBtn.style.display = 'none';
 }
 
 function loadMoreBtnShow() {
-  loadMore.style.display = 'block';
+  loadMoreBtn.style.display = 'block';
+}
+
+function onUp() {
+  window.scrollTo( 0, 0)
+}
+
+function upBtnShow() {
+  upBtn.style.display = 'block';
 }

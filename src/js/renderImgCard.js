@@ -4,7 +4,7 @@ export default function renderImgCard(image) {
     const { webformatURL, largeImageURL, tags, likes, views, comments, downloads } = image;
     const card = `
         <div class="photo-card">
-            <a class="photo-link" href=${largeImageURL}><img src="${webformatURL}" alt="${tags}" loading="lazy" /></a>
+            <a class="photo-link" href=${largeImageURL}><img src="${webformatURL}" alt="${tags}" class="gallery-photo" loading="lazy" /></a>
             <div class="info">
                 <p class="info-item">
                     <b>Likes</b>

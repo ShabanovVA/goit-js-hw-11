@@ -28,7 +28,7 @@ export default class SearchImgApi {
         this.page += 1;
     }
 
-    resetPage() {
+    resetNumberPage() {
         this.page = 1;
     }
 
