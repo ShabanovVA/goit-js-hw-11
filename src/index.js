@@ -44,8 +44,10 @@ function onFormSubmit(event) {
         Notify.failure("Sorry, there are no images matching your search query. Please try again.")
       })
   } else {
+        loadMoreBtnHide();
+    upBtnHide();
     Notify.info("Please enter new search query.")
-    loadMoreBtnHide();
+
   }
 }
 
@@ -82,4 +84,8 @@ function onUp() {
 
 function upBtnShow() {
   upBtn.style.display = 'block';
+}
+
+function upBtnHide() {
+  upBtn.style.display = 'none';
 }

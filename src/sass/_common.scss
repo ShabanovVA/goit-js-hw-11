@@ -7,7 +7,7 @@ box-sizing: border-box;
 img {
 display: block;
 width: 100%;
-height: 200px;
+height: 300px;
 object-fit: cover;
 }
 
@@ -17,6 +17,7 @@ cursor: pointer;
 
 .search-form {
 display: flex;
+margin-bottom: 15px;
 font-size: 24px;
 font-weight: 700;
 justify-content: center;
@@ -117,7 +118,7 @@ background-color: #ffffffb9;
 .info-item {
     display: flex;
     flex-direction: column;
-    flex: 1 1 calc((100% - 15px) / 4);
+    flex: calc((100% - 15px) / 4);
     margin: 0;
     text-align: center;
 }
